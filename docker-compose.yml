@@ -1,0 +1,29 @@
+services:
+  postgres:
+    image: postgis/postgis:16-3.4
+    container_name: himdrishti-postgis
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: himdrishti
+      POSTGRES_USER: himdrishti
+      POSTGRES_PASSWORD: himdrishti_dev
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - himdrishti_postgres_data:/var/lib/postgresql/data
+
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "pg_isready -U himdrishti -d himdrishti"
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  himdrishti_postgres_data:

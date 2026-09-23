@@ -1,0 +1,201 @@
+/* =========================================================
+   HIMDRISHTI INTERACTIVE RISK MAP
+   ========================================================= */
+
+.risk-map-container {
+  position: relative;
+  width: 100%;
+  height: 390px;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* Only the full Risk Map page gets the full-height map */
+.full-risk-map .risk-map-container {
+  height: 100%;
+}
+
+.leaflet-risk-map {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  z-index: 1;
+}
+
+/* Leaflet itself */
+.leaflet-container {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  font-family: inherit;
+  background: #dfe9df;
+}
+
+/* Keep Leaflet controls above the map */
+.leaflet-control-container {
+  z-index: 500;
+}
+
+.leaflet-top,
+.leaflet-bottom {
+  z-index: 600;
+}
+
+/* =========================================================
+   POPUP
+   ========================================================= */
+
+.risk-popup {
+  min-width: 190px;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+.risk-popup .popup-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.risk-popup strong {
+  display: block;
+  font-size: 15px;
+  color: #172033;
+}
+
+.risk-popup .popup-top span {
+  display: block;
+  margin-top: 3px;
+  color: #7b877e;
+  font-size: 10px;
+}
+
+.popup-score {
+  min-width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.popup-status {
+  margin-top: 12px;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+}
+
+.popup-data {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+  margin-top: 11px;
+}
+
+.popup-data div {
+  padding: 8px;
+  border: 1px solid #edf0ed;
+  border-radius: 7px;
+  background: #fafcfa;
+}
+
+.popup-data span {
+  display: block;
+  color: #8a948c;
+  font-size: 8px;
+}
+
+.popup-data b {
+  display: block;
+  margin-top: 3px;
+  color: #172033;
+  font-size: 10px;
+}
+
+/* =========================================================
+   LEGEND
+   ========================================================= */
+
+.map-legend-box {
+  position: absolute;
+  z-index: 900;
+  left: 18px;
+  bottom: 18px;
+
+  width: 140px;
+  padding: 13px;
+
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid #e0e7e0;
+  border-radius: 12px;
+
+  box-shadow: 0 7px 22px rgba(30, 50, 30, 0.12);
+
+  backdrop-filter: blur(8px);
+}
+
+.legend-title {
+  margin-bottom: 9px;
+  color: #172033;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.legend-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin: 7px 0;
+
+  color: #5e695f;
+  font-size: 10px;
+}
+
+.legend-dot {
+  width: 9px;
+  height: 9px;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.legend-dot.critical {
+  background: #d94747;
+}
+
+.legend-dot.high {
+  background: #ec8b3b;
+}
+
+.legend-dot.moderate {
+  background: #e1b83e;
+}
+
+.legend-dot.low {
+  background: #48a96b;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .risk-map-container {
+    min-height: 560px;
+  }
+}
+
+@media (max-width: 600px) {
+  .risk-map-container {
+    min-height: 500px;
+  }
+
+  .map-legend-box {
+    left: 10px;
+    bottom: 10px;
+  }
+}

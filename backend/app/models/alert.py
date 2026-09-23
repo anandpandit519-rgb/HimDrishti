@@ -1,0 +1,2 @@
+# HimDrishti
+# TODO: Implement backend/app/models/alert.py
